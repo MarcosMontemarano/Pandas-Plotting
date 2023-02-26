@@ -47,8 +47,15 @@ vector_j = np.hstack((vector1_j,vector2_j))
 for i, j in zip(range(magnitudes.shape[0]), vector_j):
     magnitudes[i, :] = df.iloc[:, j]
 
+# Arrays para conformar los ejes
+
 ang_axis = np.transpose([-90,-75,-60,-45,-30,-15,0,15,30,45,60,75,90])
 
 frec_axis = np.transpose(frecuencia)
 
+plt.xlabel("Frequency [Hz]")
+plt.ylabel("Angles [ °]")
 graf = plt.contourf(frec_axis,ang_axis,magnitudes)
+cbar = plt.colorbar(graf)
+
+
